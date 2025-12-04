@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agente de Pesquisa TCI</title>
+    <link rel="stylesheet" href="Css/Styles.css">
+</head>
+
+<body>
+    <!-- Tela Inicial -->
+    <div class="tci-welcome-screen" id="welcomeScreen">
+        <div class="tci-welcome-logo">
+            <div class="tci-welcome-cube">
+                <div class="cube-face cube-front"></div>
+                <div class="cube-face cube-right"></div>
+                <div class="cube-face cube-top"></div>
+            </div>
+            <h1 class="tci-welcome-title">Agente TCI</h1>
+            <p class="tci-welcome-subtitle">Seu assistente inteligente para consulta do Manual de Processos</p>
+        </div>
+
+        <div class="tci-welcome-features">
+            <div class="tci-welcome-feature">
+                <span class="tci-welcome-feature-icon">🔍</span>
+                <h4>Busca Inteligente</h4>
+                <p>Encontre informações específicas rapidamente usando palavras-chave ou frases completas</p>
+            </div>
+            <div class="tci-welcome-feature">
+                <span class="tci-welcome-feature-icon">🤖</span>
+                <h4>Resposta Automática IA</h4>
+                <p>Respostas contextualizadas aparecem automaticamente usando Google Gemini AI</p>
+            </div>
+            <div class="tci-welcome-feature">
+                <span class="tci-welcome-feature-icon">📊</span>
+                <h4>Resultados Relevantes</h4>
+                <p>Sistema de relevância que prioriza os resultados mais importantes para sua consulta</p>
+            </div>
+        </div>
+
+        <button class="tci-welcome-start" onclick="startSearch()">Começar Pesquisa</button>
+
+        <div class="tci-welcome-tips">
+            <strong>Dica:</strong> Faça perguntas completas para obter respostas mais precisas da IA
+        </div>
+
+    </div>
+
+    <!-- Interface Principal -->
+    <div class="tci-agent" data-compact="false">
+        <div class="tci-header">
+            <div class="tci-logo">
+                <div class="tci-cube">
+                    <div class="cube-face cube-front"></div>
+                    <div class="cube-face cube-right"></div>
+                    <div class="cube-face cube-top"></div>
+                </div>
+                <div>
+                    <h2>Agente TCI</h2>
+                    <p>Manual de Processos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tci-content">
+            <div class="tci-search-container">
+                <input type="text" class="tci-search-input" placeholder="Digite sua pergunta ou termo de busca..." id="searchInput">
+                <button class="tci-search-btn" onclick="performSearch()" id="searchBtn">
+                    <span id="btnIcon">🔎</span>
+                </button>
+            </div>
+
+            <div class="tci-suggestions">
+                <div class="tci-suggestions-title">Pesquisas frequentes:</div>
+                <div class="tci-suggestion-tags">
+                    <button class="tci-suggestion-tag" onclick="searchSuggestion('cadastro')">Cadastro</button>
+                    <button class="tci-suggestion-tag" onclick="searchSuggestion('aprovação')">Aprovação</button>
+                    <button class="tci-suggestion-tag" onclick="searchSuggestion('processo')">Processo</button>
+                    <button class="tci-suggestion-tag" onclick="searchSuggestion('documento')">Documento</button>
+                    <button class="tci-suggestion-tag" onclick="searchSuggestion('pagamento')">Pagamento</button>
+                    <button class="tci-suggestion-tag" onclick="searchSuggestion('prazo')">Prazo</button>
+                </div>
+            </div>
+
+            <div class="tci-results-container" id="resultsContainer">
+                <div class="tci-loading" id="loading" style="display: none;">
+                    <span>Pesquisando e consultando IA...</span>
+                </div>
+                <div id="results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para detalhes -->
+    <div class="tci-detail-modal" id="detailModal">
+        <div class="tci-detail-content">
+            <div class="tci-detail-header">
+                <h3 class="tci-detail-title" id="detailTitle">Detalhes do Resultado</h3>
+                <button class="tci-detail-close" onclick="closeDetailModal()">×</button>
+            </div>
+            <div class="tci-detail-body">
+                <div class="tci-detail-text" id="detailText"></div>
+                <div class="tci-detail-page-info" id="detailPageInfo"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Resposta IA -->
+    <div class="tci-ai-modal" id="aiModal">
+        <div class="tci-ai-content">
+            <div class="tci-ai-header">
+                <div class="tci-ai-title">
+                    <span class="tci-ai-icon">🤖</span>
+                    <h3>Resposta do Assistente IA</h3>
+                </div>
+                <button class="tci-ai-close" onclick="closeAIModal()">×</button>
+            </div>
+            <div class="tci-ai-body" id="aiResponse"></div>
+            <div class="tci-ai-footer">
+                <button class="tci-ai-sources-btn" onclick="showSources()">
+                    📚 Ver Fontes Consultadas
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="Js/Script.js"></script>
+</body>
+
+</html>

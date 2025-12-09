@@ -7,7 +7,7 @@ let currentSources = [];
 
 // ⚠️ CONFIGURE SUA API KEY DO GOOGLE GEMINI AQUI:
 // Obtenha em: https://aistudio.google.com/app/api-keys
-let geminiApiKey = 'AIzaSyCkSjUuKsP-IdwsTV2P0Jlgs48rQeRxxdY';
+let geminiApiKey = CONFIG.geminiApiKey;
 
 // Lista de possíveis nomes para o PDF do manual
 const possiblePdfNames = [

@@ -1,4 +1,4 @@
 // Js/config.js
 const CONFIG = {
-    geminiApiKey: 'AIzaSyA9vFy4X4_-n_zKLhsw0FBkYWQQInrN6j8'
+    geminiApiKey: 'AIzaSyD-TwEKKtMaWKmgAE2J0y_fpmc1g19IAKo'
 };
